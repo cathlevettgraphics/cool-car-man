@@ -1,5 +1,5 @@
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #22223a;
 }
 
@@ -9,7 +9,7 @@ body {
 }
 
 .main-logo {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 1.6rem;
   display: block;
 }
@@ -35,7 +35,7 @@ body {
 }
 
 .main-head-text {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 7rem;
 }
 
@@ -105,7 +105,7 @@ body {
 
 .car-entry-form h2,
 .car-entry-form-update h2 {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 4rem;
 }
 
@@ -187,7 +187,7 @@ body {
 }
 
 .posts-head {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 4rem;
 }
 
@@ -220,7 +220,7 @@ body {
 }
 
 .car-item h3 {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 3rem;
   color: #00bbfa;
   -webkit-margin-after: 10px;
@@ -228,7 +228,7 @@ body {
 }
 
 .car-item p {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
   font-size: 2rem;
   color: #4a4e68;
   text-transform: uppercase;
@@ -258,11 +258,11 @@ body {
 
 .car-item .btn {
   padding: 15px;
-  border: 0;
-  outline: 0;
   border-radius: 25px;
   font-weight: 600;
   width: 98%;
+  border: 0;
+  outline: none;
 }
 
 .car-item .btn-update {
@@ -281,6 +281,7 @@ body {
   background-color: #4a4e68;
   cursor: pointer;
   color: #fff;
+  outline: none;
 }
 
 .car-item:last-child {
@@ -317,8 +318,8 @@ body {
   }
   .car-item .btn {
     padding: 15px;
-    border: 0;
-    outline: 0;
+    border: none;
+    outline: none;
     border-radius: 25px;
     font-weight: 600;
     width: 98%;
@@ -337,6 +338,8 @@ body {
     background-color: #4a4e68;
     cursor: pointer;
     color: #fff;
+    outline: none;
+    border: none;
   }
 }
 
