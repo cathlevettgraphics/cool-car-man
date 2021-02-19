@@ -62,8 +62,23 @@ export async function addCar(data) {
 
     allCars.push(newCarData);
     renderCarList(allCars);
+
+    GrowlNotification.notify({
+      title: 'Cool car, man!',
+      description: "We've added it to your garage",
+      type: 'success',
+      position: 'top-right',
+      closeTimeout: 2500,
+    });
   } catch (err) {
-    console.log('err', err.message);
+    // console.log('err', err.message);
+    GrowlNotification.notify({
+      title: `Error: ${err.message}`,
+      description: 'Please try again',
+      type: 'warning',
+      position: 'top-right',
+      closeTimeout: 2500,
+    });
   }
 }
 
@@ -72,16 +87,35 @@ export async function updateCar(carId, changes) {
   let itemToUpdate = `${CARS_ENDPOINT}${carId}`;
 
   try {
-    const res = await fetch(itemToUpdate, {
+    const response = await fetch(itemToUpdate, {
       method: 'PUT',
       body: JSON.stringify(changes),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     });
+    if (!response.ok) {
+      throw response;
+    }
+
     fetchData(CARS_ENDPOINT);
+
+    GrowlNotification.notify({
+      title: 'Updates applied!',
+      description: 'Cool cars, man!',
+      type: 'warning',
+      position: 'top-right',
+      closeTimeout: 2500,
+    });
   } catch (err) {
-    console.log('error:', err.message);
+    // console.log('error:', err.message);
+    GrowlNotification.notify({
+      title: `Error: ${err.message}!`,
+      description: 'Please try again',
+      type: 'warning',
+      position: 'top-right',
+      closeTimeout: 2500,
+    });
   }
 }
 
@@ -90,11 +124,30 @@ export async function deleteCar(idToDelete) {
   const itemToDelete = `${CARS_ENDPOINT}${idToDelete}`;
 
   try {
-    const res = await fetch(itemToDelete, {
+    const response = await fetch(itemToDelete, {
       method: 'DELETE',
     });
+    if (!response.ok) {
+      throw response;
+    }
+
     fetchData(CARS_ENDPOINT);
+
+    GrowlNotification.notify({
+      title: 'Yeah, that car sucked!',
+      description: "We've deleted it",
+      type: 'error',
+      position: 'top-right',
+      closeTimeout: 2500,
+    });
   } catch (err) {
-    console.log('error', err, message);
+    // console.log('error', err, message);
+    GrowlNotification.notify({
+      title: `Error: ${err.message}`,
+      description: 'Please try again',
+      type: 'warning',
+      position: 'top-right',
+      closeTimeout: 2500,
+    });
   }
 }

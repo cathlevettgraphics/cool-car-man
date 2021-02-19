@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 });
 /********************
  *
- * CREATE DATA + RENDER
+ * CREATE CAR + RENDER
  *
  ********************/
 
@@ -31,15 +31,9 @@ carForm.addEventListener('submit', (e) => {
   const formData = new FormData(carForm);
   const data = Object.fromEntries(formData);
 
-  GrowlNotification.notify({
-    title: 'Cool car, man!',
-    description: "We've added it to our database",
-    type: 'success',
-    position: 'top-right',
-    closeTimeout: 2500,
-  });
-
   addCar(data);
+  renderCarList(allCars);
+
   carForm.reset();
 });
 
@@ -62,15 +56,8 @@ postsMountNode.addEventListener('click', (e) => {
 
     target.closest('li').remove();
 
-    GrowlNotification.notify({
-      title: 'Yeah, that car sucked!',
-      description: "We've deleted it",
-      type: 'error',
-      position: 'top-right',
-      closeTimeout: 2500,
-    });
-
     deleteCar(deleteID);
+    renderCarList(allCars);
   }
 
   // UPDATE
@@ -96,14 +83,6 @@ carFormUpdate.addEventListener('submit', (e) => {
   const formData = new FormData(carFormUpdate);
   const newData = Object.fromEntries(formData);
   carFormUpdate.reset();
-
-  GrowlNotification.notify({
-    title: 'Car looking good!',
-    description: 'Updates applied and stored',
-    type: 'warning',
-    position: 'top-right',
-    closeTimeout: 2500,
-  });
 
   updateCar(originalCar._id, newData);
   renderCarList();
