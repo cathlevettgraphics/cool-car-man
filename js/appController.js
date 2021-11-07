@@ -11,7 +11,9 @@ import { populate } from './utility.js';
 
 export const postsMountNode = document.getElementById('posts-target');
 
-export const CARS_ENDPOINT = 'https://carsapp2050.herokuapp.com/api/v1/cars/';
+export const CARS_ENDPOINT =
+  'https://server-cars-api.herokuapp.com/api/v1/cars/';
+// export const CARS_ENDPOINT = 'https://carsapp2050.herokuapp.com/api/v1/cars/';
 
 document.addEventListener('DOMContentLoaded', (e) => {
   fetchData(CARS_ENDPOINT);
